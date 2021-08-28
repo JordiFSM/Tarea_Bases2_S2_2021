@@ -1,0 +1,38 @@
+CREATE DATABASE inventario;
+CREATE TABLE Proveedores(
+    id_proveedor int PRIMARY KEY,
+    nombre VARCHAR(40),
+    direccion VARCHAR(40),
+    telefono int
+);
+CREATE TABLE Productos(
+    id_producto SERIAL PRIMARY KEY,
+    nombre VARCHAR(40),
+    precio int,
+    id_proveedor int,
+    FOREIGN KEY(id_proveedor) REFERENCES Proveedores(id_proveedor)
+);
+
+INSERT INTO Proveedores(id_proveedor,nombre,direccion,telefono)VALUES
+(1,'John Salazar','San José, Tibas',64253241),
+(2,'Ryan Orozco','Alajuela, Alajuelita',63552214),
+(3,'Marta Rios','Heredia, Barva',70983216),
+(4,'Natalia Castro','San José, Escazu',84322123),
+(5,'Anna Cordero','Alajuela, San Ramon',70563421),
+(6,'Johan Romero','Heredia, Guarari',60980212),
+(7,'Mario Brenes','Puntarenas, Perez Zeledón',64352718),
+(8,'Cristian Rojas','San José, Tibas',72162738),
+(9,'Byron Salas','San José, Pavas',84321572),
+(10,'Roberth Segura','San José, Merced',60020467);
+
+INSERT INTO Productos(nombre,precio,id_proveedor)VALUES
+('Papa',890,6),
+('Café',1490,10),
+('Cebolla',750,6),
+('Arroz',1475,8),
+('Frijol',900,4),
+('Zanahoria',900,1),
+('Chile Dulce',250,3),
+('Sandía',1100,2),
+('Manzana',1000,7),
+('Maiz',400,5);
